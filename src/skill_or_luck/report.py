@@ -168,7 +168,7 @@ def asset_section(r: dict, figure_dir: str) -> str:
 
 def write_report(results: list[dict], path: Path) -> None:
     manifest_path = path.parent / "data_manifest.json"
-    manifest = json.loads(manifest_path.read_text()) if manifest_path.exists() else {}
+    manifest = json.loads(manifest_path.read_text(encoding="ut-g")) if manifest_path.exists() else {}
     packages = ", ".join(f"{p} {version(p)}" for p in ("numpy", "pandas", "scipy", "matplotlib"))
     data_lines = [f"- **{r['label']}**: {manifest.get(r['asset'], {}).get('source', 'unknown')}, "
                   f"retrieved {manifest.get(r['asset'], {}).get('retrieved_utc', '?')} UTC"
@@ -185,4 +185,4 @@ def write_report(results: list[dict], path: Path) -> None:
         *[asset_section(r, r["asset"]) for r in results],
         power_section(),
     ])
-    path.write_text(text + "\n")
+    path.write_text(text + "\n", encoding="utf-8")

@@ -27,6 +27,6 @@ def test_run_end_to_end_on_synthetic_data(tmp_path, monkeypatch):
     pd.DataFrame({"Date": dates.strftime("%Y-%m-%d"), "Close": prices}).to_csv("p.csv", index=False)
     main(["import-csv", "eurusd", "p.csv"])
     main(["run", "eurusd", "--n-perm", "20", "--n-boot", "20"])
-    report = (tmp_path / "results" / "REPORT.md").read_text()
+    report = (tmp_path / "results" / "REPORT.md").read_text(encoding="utf-8")
     assert "## EUR/USD" in report and "Six-month holdout" in report
     assert (tmp_path / "results" / "eurusd" / "walk_forward.png").exists()

@@ -126,7 +126,7 @@ def save_prices(asset: str, prices: pd.Series, source: str) -> list[str]:
     path = RAW_DIR / f"{asset}.csv"
     prices.rename("close").rename_axis("date").to_csv(path, float_format="%.6f")
 
-    manifest = json.loads(MANIFEST.read_text()) if MANIFEST.exists() else {}
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8")) if MANIFEST.exists() else {}
     manifest[asset] = {
         "source": source,
         "retrieved_utc": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M"),
@@ -137,7 +137,7 @@ def save_prices(asset: str, prices: pd.Series, source: str) -> list[str]:
         "validation_notes": notes,
     }
     MANIFEST.parent.mkdir(parents=True, exist_ok=True)
-    MANIFEST.write_text(json.dumps(manifest, indent=2) + "\n")
+    MANIFEST.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     return notes
 
 

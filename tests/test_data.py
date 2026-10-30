@@ -73,4 +73,4 @@ def test_import_csv_round_trip(tmp_path, monkeypatch):
     data.import_csv("nifty50", "nifty.csv")
     loaded = data.load_prices("nifty50")
     assert len(loaded) == 600 and loaded.iloc[-1] == pytest.approx(120)
-    assert "nifty50" in (tmp_path / "results" / "data_manifest.json").read_text()
+    assert "nifty50" in (tmp_path / "results" / "data_manifest.json").read_text(encoding="utf-8")
