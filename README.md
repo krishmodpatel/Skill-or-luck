@@ -214,7 +214,18 @@ test this.
 **Optimising parameters did not help.** In the walk-forward test, the setting
 chosen on the previous three years ranked at the 45th, 52nd and 50th percentile
 of its grid in the following year, which is what random choice would give. The
-best of all 628 settings (MA crossover 70/80) had
+best of all 628 settings (MA crossover 70/80) had a Sharpe ratio of 0.43, but the
+best of 628 strategies with no edge would be expected to reach about 0.52. Its
+deflated Sharpe ratio is 35%.
+
+**The six-month holdout** (29 April to 29 October 2026, 126 prices) is too short
+to judge. Buy and hold lost 5.2%, while the default MA crossover gained 4.6% from
+a single trade.
+
+**Compared with EUR/USD:** on both markets no rule beat luck. The difference is
+the benchmark. EUR/USD drifted down with no reward for holding it, while the
+Nifty 50 rewarded investors simply for holding it, which made it a much harder
+benchmark to beat.
 
 ## Reproducing
 
