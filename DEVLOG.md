@@ -77,16 +77,26 @@ problems. Fixed:
 - Behaviour on Windows and macOS (the code uses only portable libraries, but it was
   only run on Linux).
 
-## 2026-10-30 — Windows run, Nifty 50 results, GitHub
+## 2026-10-29 (evening, IST) — Windows run and Nifty 50 data
 
-- Ran the project on Windows 11 with Python 3.14: 47 tests pass.
-- The report crashed on Windows because text files were written without an
-  encoding (Windows defaults to cp1252, which has no "≤"). Fixed by adding
-  encoding="utf-8" to every read_text/write_text call.
-- Downloaded the Nifty 50 from Yahoo Finance (2007-09-17 to 2026-10-29, 4,690
-  rows) and ran the full analysis. Result: buy and hold Sharpe 0.76; all three
-  default rules negative; deflated Sharpe of the best setting 35%.
-- The data check flagged four large moves (2009-05-18, 2020-03-20, 2024-06-04,
-  2025-04-07). Not yet checked against NSE's official data.
+- Ran the project on Windows 11 with Python 3.14: 47 tests pass. This resolves the
+  "Behaviour on Windows" item under *Not verified* above (macOS is still untested).
+- Downloaded the Nifty 50 from Yahoo Finance: 2007-09-17 to 2026-10-29, 4,690 rows,
+  retrieved 2026-10-29 16:54 UTC (22:24 IST). This resolves the "Nifty 50 download
+  and results" item above.
+- `python -m skill_or_luck run` crashed while writing the report: text files were
+  written without an encoding, and Windows defaults to cp1252, which has no "≤".
+
+## 2026-10-30 — encoding fix, Nifty 50 results, GitHub
+
+- Fixed the crash by adding `encoding="utf-8"` to every `read_text`/`write_text`
+  call (a typo in the first attempt, `ut-g`, was caught by the tests and corrected).
+- Ran the full analysis on both assets. Nifty 50 result: buy and hold Sharpe 0.76
+  (95% CI 0.27 to 1.24); all three default rules negative; deflated Sharpe of the
+  best setting 35%.
+- The data check flagged four large Nifty 50 moves (2009-05-18, 2020-03-20,
+  2024-06-04, 2025-04-07). Not yet checked against NSE's official data.
 - README results section for the Nifty 50 written with help from an AI assistant.
-- Published to a private GitHub repository.
+- Published to a private GitHub repository. The author email of the first commits
+  was corrected with a rebase before anyone else had a copy, so those commits show
+  the date of the correction (2026-10-30) rather than when they were first made.
