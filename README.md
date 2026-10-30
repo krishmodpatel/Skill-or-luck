@@ -4,12 +4,8 @@ Can you tell a profitable trading backtest from luck? This project runs three si
 trading rules over daily prices, charges trading costs, and then applies five
 statistical checks that try to answer that question honestly.
 
-> **Status (29 October 2026).** The full analysis has been run on **EUR/USD**
-> (results below and in [`results/REPORT.md`](results/REPORT.md)). The code supports
-> the **Nifty 50** as well, but its data comes from Yahoo Finance, which could not be
-> reached from the environment the project was built in, so there are no Nifty 50
-> results yet. See [Reproducing](#reproducing) to produce them.
-
+> **Status (30 October 2026).** The analysis has been run on **EUR/USD** and the
+> **Nifty 50**; results are below and in [`results/REPORT.md`](results/REPORT.md).
 ## The question
 
 A backtest replays a trading rule over past prices. With enough rules and
@@ -190,6 +186,35 @@ the Sharpe-ratio intervals for the rules are 3 to 6 units wide. One interval
 (breakout 20/5, chosen on the previous three years) excludes zero, but with five
 trades, six rule versions tested and a bootstrap built from about six 20-day blocks,
 that is weak evidence.
+
+## Results: Nifty 50
+
+All numbers are backtests on historical data (Yahoo Finance, `^NSEI`), with an
+assumed cost of 5 basis points per trade side.
+
+**Buy and hold was the strongest strategy, and the only one clearly above zero.**
+Over the main sample (4,247 trading days, 2 January 2009 to 28 April 2026), simply
+holding the index returned 12.7% a year, with a Sharpe ratio of 0.76 (95% interval
+0.27 to 1.24) and a maximum drawdown of −38.4%.
+
+| Rule | CAGR | Sharpe (95% CI) | Max drawdown | Random-entry p |
+|---|---|---|---|---|
+| Buy and hold | 12.7% | 0.76 (0.27 to 1.24) | −38.4% | – |
+| MA crossover 50/200 | −3.3% | −0.10 (−0.56 to 0.42) | −68.9% | 0.974 |
+| Breakout 55/20 | −1.1% | −0.00 (−0.52 to 0.47) | −54.4% | 0.971 |
+| Mean reversion 20/2.0 | −3.6% | −0.20 (−0.65 to 0.30) | −66.4% | 0.475 |
+
+**All three rules lost money.** For the two trend rules, about 97% of
+random-timing versions of the same trades did at least as well, so their timing
+was no better than chance, and if anything worse. A likely reason, not yet
+tested: all three rules also go short, and short positions lose in an index that
+rose for most of the period. Splitting results into long and short trades would
+test this.
+
+**Optimising parameters did not help.** In the walk-forward test, the setting
+chosen on the previous three years ranked at the 45th, 52nd and 50th percentile
+of its grid in the following year, which is what random choice would give. The
+best of all 628 settings (MA crossover 70/80) had
 
 ## Reproducing
 

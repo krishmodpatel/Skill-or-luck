@@ -76,3 +76,17 @@ problems. Fixed:
 - Nifty 50 download and results (see above).
 - Behaviour on Windows and macOS (the code uses only portable libraries, but it was
   only run on Linux).
+
+## 2026-10-30 — Windows run, Nifty 50 results, GitHub
+
+- Ran the project on Windows 11 with Python 3.14: 47 tests pass.
+- The report crashed on Windows because text files were written without an
+  encoding (Windows defaults to cp1252, which has no "≤"). Fixed by adding
+  encoding="utf-8" to every read_text/write_text call.
+- Downloaded the Nifty 50 from Yahoo Finance (2007-09-17 to 2026-10-29, 4,690
+  rows) and ran the full analysis. Result: buy and hold Sharpe 0.76; all three
+  default rules negative; deflated Sharpe of the best setting 35%.
+- The data check flagged four large moves (2009-05-18, 2020-03-20, 2024-06-04,
+  2025-04-07). Not yet checked against NSE's official data.
+- README results section for the Nifty 50 written with help from an AI assistant.
+- Published to a private GitHub repository.
