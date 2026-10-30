@@ -196,7 +196,7 @@ that is weak evidence.
 Requires Python 3.10 or later. Run all commands from the repository folder.
 
 ```bash
-git clone https://github.com/<your-github-username>/skill-or-luck.git
+git clone https://github.com/krishmodpatel/Skill-or-luck.git
 cd skill-or-luck
 python -m venv .venv
 source .venv/bin/activate              # Windows: .venv\Scripts\activate
