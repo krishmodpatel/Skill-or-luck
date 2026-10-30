@@ -1,0 +1,4 @@
+rule,folds,mean_in_sample_sharpe,mean_out_of_sample_sharpe,mean_median_setting_oos_sharpe,share_of_folds_oos_below_is,mean_chosen_oos_percentile,mean_rank_correlation,stitched_oos_sharpe
+ma_crossover,14,1.02547,0.0364515,0.131876,0.857143,0.452159,-0.110353,-0.201343
+breakout,14,0.732173,0.0107004,0.070892,0.785714,0.522613,-0.0223888,0.0423619
+mean_reversion,14,1.00242,0.0645354,-0.160531,0.857143,0.498999,0.117312,-0.0274252

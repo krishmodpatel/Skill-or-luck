@@ -1,0 +1,8 @@
+rule,params,choice,total_return,sharpe,trades,sharpe_low,sharpe_high
+buy_and_hold,,-,-0.0522714,-0.841814,1,,
+ma_crossover,"fast=50, slow=200",default,0.0458046,0.807852,1,-1.28447,3.3388
+ma_crossover,"fast=15, slow=60",tuned on previous 3 years,0.0484034,0.850609,3,-0.869102,2.57929
+breakout,"entry=55, exit=20",default,-0.00398135,-0.0673408,2,-3.5425,2.18625
+breakout,"entry=250, exit=100",tuned on previous 3 years,-0.0328277,-1.33481,1,-2.48792,0.136571
+mean_reversion,"lookback=20, threshold=2.0",default,0.0380047,0.984814,4,-1.64806,4.41195
+mean_reversion,"lookback=25, threshold=2.25",tuned on previous 3 years,-0.000945862,0.00415951,2,-2.05961,4.24355

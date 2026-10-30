@@ -1,0 +1,27 @@
+{
+  "eurusd": {
+    "source": "FRED DEXUSEU via datahub.io mirror, inverted from EUR per USD (https://raw.githubusercontent.com/datasets/exchange-rates/c28e171e36a46bd2941cf66156acd8efaf9906f5/data/daily.csv)",
+    "retrieved_utc": "2026-10-28 21:26",
+    "first_date": "1999-01-04",
+    "last_date": "2026-10-23",
+    "rows": 6974,
+    "sha256": "af446b608b07ca578b977fc4e087b1bb2e9ecfd00ddcd4d27b8fea951e0e7ec1",
+    "validation_notes": [
+      "dropped 281 missing values"
+    ]
+  },
+  "nifty50": {
+    "source": "Yahoo Finance ^NSEI via yfinance",
+    "retrieved_utc": "2026-10-29 16:54",
+    "first_date": "2007-09-17",
+    "last_date": "2026-10-29",
+    "rows": 4690,
+    "sha256": "156353d49585fe9eae38c1d76f039009c2086cd4301c1de8c267474229451072",
+    "validation_notes": [
+      "suspicious daily move +16.33% (log) on 2009-05-18; check the source",
+      "suspicious daily move +5.67% (log) on 2020-03-20; check the source",
+      "suspicious daily move -6.11% (log) on 2024-06-04; check the source",
+      "suspicious daily move -3.30% (log) on 2025-04-07; check the source"
+    ]
+  }
+}

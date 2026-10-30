@@ -1,0 +1,15 @@
+# Yahoo Finance data may not be redistributed; download it with `python -m skill_or_luck fetch nifty50`.
+# The EUR/USD file is public data (PDDL) and is committed so results reproduce exactly.
+data/raw/nifty50.csv
+
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db

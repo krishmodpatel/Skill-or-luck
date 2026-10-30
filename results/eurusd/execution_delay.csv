@@ -1,0 +1,7 @@
+rule,extra_delay_days,sharpe
+ma_crossover,0,-0.0295147
+ma_crossover,1,-0.0338926
+breakout,0,0.0161919
+breakout,1,-0.0502553
+mean_reversion,0,0.240625
+mean_reversion,1,0.132903

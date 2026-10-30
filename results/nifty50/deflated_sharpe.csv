@@ -1,0 +1,5 @@
+scope,trials,best_rule,best_params,best_sharpe,psr_vs_zero,luck_hurdle_sharpe,deflated_sharpe
+ma_crossover,215,ma_crossover,"fast=70, slow=80",0.432384,0.965894,0.393765,0.564692
+breakout,199,breakout,"entry=70, exit=50",0.309938,0.904433,0.268474,0.569415
+mean_reversion,214,mean_reversion,"lookback=40, threshold=2.75",0.0983321,0.657688,0.364025,0.136224
+all_rules,628,ma_crossover,"fast=70, slow=80",0.432384,0.965894,0.524368,0.349028
